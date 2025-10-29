@@ -1,0 +1,24 @@
+import math as m
+num1 = float(input("digite um número inteiro: "))
+num2 = float(input("digite outro número inteiro: "))
+num3 = float(input("digite mais um número inteiro: "))
+print(num1 + num2)
+
+if num1 == num2:
+    print("Não é uma equação do segundo grau")
+
+else:
+  delta = num2 * num2 - 4 * num1 * num3
+
+if delta < 0:
+ print("Sua esquação não tem raízes")
+
+else:
+ x1 = -num2 + m.sqrt(delta, 2)/ 2 * num1
+ x2 = -num2 + m.sqrt(delta, 2)/ 2 * num1
+
+if delta == 0:
+ print("A parábola tem apenas 1 ponto que encosta no eixo x")
+
+else:
+ print("A parábola tem 2 pontos que encosta no eixo x")
