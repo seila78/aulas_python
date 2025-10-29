@@ -1,0 +1,19 @@
+senha_secreta = "python123"
+
+tentativas_max = 3
+
+print("Bem-vindo ao Cofre Misterioso!")
+print("Você tem 3 tentativas para adivinhar a senha.\n")
+
+for tentativa in range(1, tentativas_max + 1):
+    senha_digitada = input(f"Tentativa {tentativa}: Digite a senha → ")
+
+    if senha_digitada == senha_secreta:
+        print("Acesso concedido! Você abriu o cofre!")
+        break
+    else:
+        tentativas_restantes = tentativas_max - tentativa
+        if tentativas_restantes > 0:
+            print(f"Senha incorreta! Tentativas restantes: {tentativas_restantes}\n")
+        else:
+            print("Todas as tentativas foram usadas. O cofre continua trancado!\n")
