@@ -1,0 +1,16 @@
+numero = int(input("digite um intiro positivo: "))
+if numero <= 1:
+    print(f"o numero {numero} não é primo. numeros primos são maiores que 1")
+elif numero == 2:
+    print(f"o numero {numero} é primo")
+elif numero % 2 == 0:
+    print(f"o numero {numero} não é primo, pois o o unico par primo é 2")
+else:
+    conta_divisores = 0
+    for contador in range(i, numero + 1):
+        if numero %contador == 0:
+            conta_divisores += i
+    if conta_divisores == 2:
+        print(f"o numero {numero} é primo")
+    else:
+        print(f"o numero {numero} não é primo")
