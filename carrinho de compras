@@ -1,0 +1,76 @@
+valor_minimo_de_desconto = 100.00
+taxa_de_desconto = 0.10
+
+def exibir_menu_carrinho():
+     """exibeo menu principal do carrinho"""
+     print('\n--- calculadora de carrinho de compra ---')
+     print('1. adicionar preço de produto')
+     print('2. ver carrinho e Calcular Total')
+     print('3. esvaziar carrinho')
+     print('4. sair')
+
+def adicionar_preco(carrinho):
+    """adicionar um novo preço ao vetor 'produto'"""
+    try:
+        """manipulaçao de tipos de dados"""
+        preco_str = input('digite o preço do produto (ex: 15.00): ')
+        preco = float(preco_str)
+
+        if preco > 0:
+            carrinho.append(preco)
+            print(f'produto de R$ {preco:.2f} adicionado com sucesso!')
+        else:
+            print('o preço deve ser um valor positivo.')
+
+    except ValueError:
+     print('erro, valor invalido. tente novamente')
+
+def ver_carrinho_e_total(carrinho):
+    """calcula e exibe o total, subtotal e desconto a pagar"""
+    if not carrinho:
+        print('o carrinho está vazio.')
+        return # termina a função mais cedo
+
+    print('\n--- itens no carrinho ---')
+    subtotal = 0.0
+
+    for preco in carrinho:
+        print(f'R$ {preco:.2f}')
+        subtotal = subtotal + preco
+
+    print(f'\nsubtotal: R$ {subtotal:.2f}')
+    total_a_pagar = subtotal
+
+    if subtotal > valor_minimo_de_desconto:
+        desconto = subtotal * taxa_de_desconto
+        total_a_pagar = subtotal - desconto
+        print(f'Desconto (10%): {desconto:.2f}')
+    else:
+        print('Nenhum desconto aplicado (compre acima de R$ 100.00).')
+
+    print(f'total a pagar: R$ {total_a_pagar:.2f}')
+
+def esvaziar_carrinho(carrinho):
+    carrinho.clear()
+    print('carrinho esvaziado com sucesso.')
+
+def main_carrinho():
+    carrinho_de_compras = []
+
+    while True:
+        exibir_menu_carrinho()
+        opcao = input('escolha uma opção (1-4): ')
+
+        if opcao == '1':
+            adicionar_preco(carrinho_de_compras)
+        elif opcao == '2':
+            ver_carrinho_e_total(carrinho_de_compras)
+        elif opcao == '3':
+            esvaziar_carrinho(carrinho_de_compras)
+        elif opcao == '4':
+            print('saindo do sistema de carrinho')
+            break
+        else:
+            print('opção inválida. tente novamente.')
+
+main_carrinho()
