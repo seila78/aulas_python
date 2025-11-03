@@ -1,0 +1,11 @@
+def fatorial(numero):
+    num = numero
+    multiplicador = numero - 1
+    while multiplicador > 0:
+        num = num * multiplicador
+        multiplicador -= 1
+    return num
+
+print(fatorial(10))
+resultado = fatorial(7)
+print(resultado)
